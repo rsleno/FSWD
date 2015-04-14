@@ -5,5 +5,20 @@
 # Download the file fresh_tomatoes.py which contains the open_movies_page() function that will take in your list of movies and generate an HTML file including this content, producing a website to showcase your favorite movies.
 # Your task is to write a movie class in media.py. To do this, think about what the properties of a movie are that need to be encapsulated in a movie object such as movie titles, box art, poster images, and movie trailer URLs. Look at what open_movies_page() does with a list of movie objects for hints on how to design your movie class.
 # Next you’ll want to write a constructor for the movie class so that you can create instances of movie.
+
+import urllib
+
+
 class Movie():
 	
+	def __init__(self, movie_data):
+		self.title = movie_data.title
+		self.synopsis = movie_data.synopsis
+		self.image_url = movie_data.image_url
+		self.youtube_url = movie_data.youtube_url
+
+
+	def show_trailer(self):
+		utllib.open(self.youtube_url)
+
+
