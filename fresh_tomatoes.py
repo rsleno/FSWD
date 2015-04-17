@@ -53,6 +53,9 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
+        .stars{
+          color: #FDB800;
+        }
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -122,11 +125,16 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-2 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="110" height="171">
     <h6>{movie_title}</h6>
+    <p>{rating_score}</p>
 </div>
 '''
 
 full_stars = '''
-<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-star stars" aria-hidden="true"></span>
+'''
+
+empty_stars = '''
+<span class="glyphicon glyphicon-star-empty stars" aria-hidden="true"></span>
 '''
 
 def create_movie_tiles_content(movies):
@@ -143,7 +151,7 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            rating_score=movie.convert_rating()
+            rating_score=(full_stars * movie.convert_rating()) + (empty_stars * (5 - movie.convert_rating()))
         )
     return content
 

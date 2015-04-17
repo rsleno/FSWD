@@ -16,6 +16,6 @@ class Movie():
 		utllib.open(self.youtube_url)
 
 	def convert_rating(self):
-		return self.score / 2
+		return int(self.score / 2)
 
 
