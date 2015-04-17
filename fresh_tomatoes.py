@@ -55,6 +55,7 @@ main_page_head = '''
         }
         .stars{
           color: #FDB800;
+
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -109,6 +110,18 @@ main_page_content = '''
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    Dropdown
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+			  </ul>
+			</div>	
           </div>
         </div>
       </div>
@@ -122,10 +135,12 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-2 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-3 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="110" height="171">
-    <h6>{movie_title}</h6>
-    <p>{rating_score}</p>
+    <div>
+    	<h5>{movie_title} ({movie_year})</h5>
+    	<p>{rating_score}</p>
+    </div>
 </div>
 '''
 
@@ -149,6 +164,7 @@ def create_movie_tiles_content(movies):
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
+            movie_year=movie.year,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
             rating_score=(full_stars * movie.convert_rating()) + (empty_stars * (5 - movie.convert_rating()))

@@ -6,6 +6,7 @@ class Movie():
 	
 	def __init__(self, movie_data):
 		self.title = movie_data['title']
+		self.year = movie_data['year']
 		self.synopsis = movie_data['synopsis']
 		self.poster_image_url = movie_data['poster_image_url']
 		self.trailer_youtube_url = movie_data['trailer_youtube_url']
