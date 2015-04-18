@@ -17,6 +17,10 @@ main_page_head = '''
         body {
             padding-top: 80px;
         }
+        h2 {
+        	font-size: 18px;
+        	
+        }
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -55,7 +59,7 @@ main_page_head = '''
         }
         .stars{
           color: #FDB800;
-
+          font-size: 20px;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -110,18 +114,6 @@ main_page_content = '''
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-            <div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    Dropdown
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-			  </ul>
-			</div>	
           </div>
         </div>
       </div>
@@ -136,9 +128,9 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-3 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="110" height="171">
+    <img src="{poster_image_url}" width="165" height="256">
     <div>
-    	<h5>{movie_title} ({movie_year})</h5>
+    	<h2>{movie_title} ({movie_year})</h2>
     	<p>{rating_score}</p>
     </div>
 </div>
