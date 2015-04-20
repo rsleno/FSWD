@@ -19,7 +19,14 @@ main_page_head = '''
         }
         h2 {
         	font-size: 18px;
-        	
+        }
+        p {
+        	font-size: 10px;
+        	text-align: left;
+        }
+        p.synopsis-title {
+        	font-size: 16px;
+        	text-align: left;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -52,18 +59,15 @@ main_page_head = '''
             opacity: 0;   
             transition: all 0.3s ease-out;
         }
-
         .movie-info{
-            margin: 10px
-            text-align: left
+            padding: 20px
+            
         }
-
         .movie-tile:hover .overlay{
             background-color: rgba(0,0,0,.8);
             opacity: 1;
             color: white;
         }
-
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -78,8 +82,11 @@ main_page_head = '''
             background-color: white;
         }
         .stars{
-          color: #FDB800;
-          font-size: 20px;
+            color: #FDB800;
+            font-size: 20px;
+        }
+        .rating{
+        	text-align:center;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -151,10 +158,12 @@ movie_tile_content = '''
     <img src="{poster_image_url}" width="165" height="256">
     <div>
     	<h2>{movie_title} ({movie_year})</h2>
-    	<p>{rating_score}</p>
+    	<p class="rating">{rating_score}</p>
     </div>
     <div class="overlay">
-      <div class="movie-info"><h5>Synopsis:</h5> {movie_synopsis} </div>
+      <div class="movie-info">
+      	<p class="synopsis-title"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Synopsis:</p>
+      	<p>{movie_synopsis}</p></div>
     </div>
 </div>
 '''
