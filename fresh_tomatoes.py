@@ -51,7 +51,11 @@ main_page_head = '''
             position:absolute;
             opacity: 0;   
             transition: all 0.3s ease-out;
+        }
 
+        .movie-info{
+            margin: 10px
+            text-align: left
         }
 
         .movie-tile:hover .overlay{
@@ -150,7 +154,7 @@ movie_tile_content = '''
     	<p>{rating_score}</p>
     </div>
     <div class="overlay">
-      Loren ictus 
+      <div class="movie-info"><h5>Synopsis:</h5> {movie_synopsis} </div>
     </div>
 </div>
 '''
@@ -176,6 +180,7 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             movie_year=movie.year,
+            movie_synopsis=movie.synopsis,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
             rating_score=(full_stars * movie.convert_rating()) + (empty_stars * (5 - movie.convert_rating()))
