@@ -39,11 +39,27 @@ main_page_head = '''
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
-        }
-        .movie-tile:hover {
-            background-color: #EEE;
             cursor: pointer;
+            position:relative;
+            overflow: hidden;
         }
+        .movie-tile .overlay{
+            left:0px;
+            top:0px;
+            width:100%;
+            height:100%;
+            position:absolute;
+            opacity: 0;   
+            transition: all 0.3s ease-out;
+
+        }
+
+        .movie-tile:hover .overlay{
+            background-color: rgba(0,0,0,.8);
+            opacity: 1;
+            color: white;
+        }
+
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -132,6 +148,9 @@ movie_tile_content = '''
     <div>
     	<h2>{movie_title} ({movie_year})</h2>
     	<p>{rating_score}</p>
+    </div>
+    <div class="overlay">
+      Loren ictus 
     </div>
 </div>
 '''
