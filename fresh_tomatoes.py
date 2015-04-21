@@ -161,18 +161,21 @@ movie_tile_content = '''
     	<p class="rating">{rating_score}</p>
     </div>
     <div class="overlay">
-      <div class="movie-info">
-      	<p class="synopsis-title"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Synopsis:</p>
-      	<p>{movie_synopsis}</p></div>
+        <div class="movie-info">
+      	    <p class="synopsis-title"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Synopsis:</p>
+      	    <p>{movie_synopsis}</p>
+        </div>
     </div>
 </div>
 '''
 
-full_stars = '''
+# Full star html template
+full_star = '''
 <span class="glyphicon glyphicon-star stars" aria-hidden="true"></span>
 '''
 
-empty_stars = '''
+# Empty star html template
+empty_star = '''
 <span class="glyphicon glyphicon-star-empty stars" aria-hidden="true"></span>
 '''
 
@@ -192,7 +195,7 @@ def create_movie_tiles_content(movies):
             movie_synopsis=movie.synopsis,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            rating_score=(full_stars * movie.convert_rating()) + (empty_stars * (5 - movie.convert_rating()))
+            rating_score=(full_star * movie.convert_rating()) + (empty_star * (5 - movie.convert_rating()))
         )
     return content
 

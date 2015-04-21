@@ -13,6 +13,7 @@ movie_data = [
 {"title": "The Godfather", "year": "1972", "synopsis": "Epic tale of a 1940s New York Mafia family and their struggle to protect their empire from rival families as the leadership switches from the father (Marlon Brando) to his youngest son (Al Pacino). Vito Corleone (Marlon Brando) is The Godfather, the Don (head) of a successful, tightly-knit family whose business is organized crime. Heir apparent is impulsive, hot-tempered Sonny (James Caan), whose brothers are brooding Michael (Al Pacino), who tries to seperate himself from his criminal family, and Fredo (John Cazale), who can't seem to do anything right. Vito has also adopted level-headed Tom Hagan (Robert Duvall), now the family lawyer. Vito's refusal to enter the lucrative drug rackets puts him in a war between the mafia families. Michael gets his hand dirty by taking revenge on the family's behalf, and then taking over as the new calculating, ruthless godfather. In his new role he plots to make the Corleones the leading players in Las Vegas casino industry while arranging for the war in New York City to be settled for once and for all.", "poster_image_url": "http://pics.filmaffinity.com/The_Godfather-485345341-large.jpg", "trailer_youtube_url": "https://www.youtube.com/watch?v=1aV9X2d-f5g", "score": 9.1}
 ]
 
+# Create movie objects from movie_data and append to a list.
 for m in movie_data:
 	mov.append(media.Movie(m))
 

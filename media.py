@@ -1,10 +1,19 @@
-
-import urllib
+import webbrowser
 
 
 class Movie():
+	""" This class stores movie information.
+
+	Attributes:
+        title: A string with the movie title.
+        year: A string with the release year of the movie.
+        synopsis: A string with the synopsis of the movie.
+        poster_image_url: A string with the url of the movie poster.
+        trailer_youtube_url: A string with the youtube url of the movie trailer.
+	"""
 	
 	def __init__(self, movie_data):
+		""" Inits the Movie Class. """
 		self.title = movie_data['title']
 		self.year = movie_data['year']
 		self.synopsis = movie_data['synopsis']
@@ -14,9 +23,12 @@ class Movie():
 
 
 	def show_trailer(self):
-		utllib.open(self.youtube_url)
+		""" Opens browser and loads the youtube_url attribute. """
+		webbrowser.open(self.trailer_youtube_url)
+
 
 	def convert_rating(self):
-		return int(self.score / 2)
+		""" Converts float score in base 10 to a rounded integer in base 5. """
+		return int(round(self.score / 2))
 
 
