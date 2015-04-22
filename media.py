@@ -10,6 +10,7 @@ class Movie():
         synopsis: A string with the synopsis of the movie.
         poster_image_url: A string with the url of the movie poster.
         trailer_youtube_url: A string with the youtube url of the movie trailer.
+        score: Float with the movie rating score.
 	"""
 	
 	def __init__(self, movie_data):
@@ -20,11 +21,6 @@ class Movie():
 		self.poster_image_url = movie_data['poster_image_url']
 		self.trailer_youtube_url = movie_data['trailer_youtube_url']
 		self.score = movie_data['score']
-
-
-	def show_trailer(self):
-		""" Opens browser and loads the youtube_url attribute. """
-		webbrowser.open(self.trailer_youtube_url)
 
 
 	def convert_rating(self):
